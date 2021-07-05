@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+<!--        <Property name="LOG_PATH">${sys:catalina.home}/logs</Property>  -->
+        <Property name="LOG_PATH">g:/logs</Property>
+        <Property name="LOG_PATTERN">%d{MM-dd HH:mm:ss.SSS} [%p] %F\:%L - %m%n</Property>
+        <Property name="LOG_NAME">clientCredit</Property>
+        <Property name="severity">$${jndi:log.level}</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
+        <File name="${LOG_NAME}" fileName="${LOG_PATH}/${LOG_NAME}.log" append="true">
+        <PatternLayout pattern="${LOG_PATTERN}" />
+<!--        <File name="${LOG_NAME}" fileName="${LOG_PATH}/${LOG_NAME}.log" append="true">
+            <PatternLayout pattern="${LOG_PATTERN}" />  -->
+        </File>
+        <!--<File name="${LOG_GENERAL_NAME}" fileName="${LOG_PATH}/${LOG_GENERAL_NAME}.log" append="true">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </File>-->
+    </Appenders>
+
+    <Loggers>
+        <Logger name="ru.aleksnech.springboot.spring_data_jpa" level="info" additivity="false">
+            <AppenderRef ref="console" />
+            <appender-ref ref="${LOG_NAME}" level="info" />
+        </Logger>
+        <Root level="INFO">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="${LOG_NAME}"/>
+            <!--<AppenderRef ref="${LOG_GENERAL_NAME}"/>-->
+        </Root>
+    </Loggers>
+</Configuration>
