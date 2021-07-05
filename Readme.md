@@ -61,6 +61,15 @@ DELETE http://localhost:8080/api/client/{id}
 Json Delete Plateg:
 DELETE http://localhost:8080/api/client/plateg/{id}
 
+Json клиентов с обязательным платежом 0.00 
+(погасили задолженность)
+GET http://localhost:8080/api/client/nocredamunt/0.00
+
+Json для получения списка клиентов с адолженностью по 
+обязательному платежу (не оплачен обязательный платеж)
+GET http://localhost:8080/api/client//plategamnt/0.01
+
+
 Все операции ввода, редактирования изменения клиентаили
 платежа логируются. 
 Настройки логирования:
