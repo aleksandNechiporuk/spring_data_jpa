@@ -67,8 +67,7 @@ public class ClientsController {
     @PostMapping("/client/plateg")
     public Plateg addPlategClient(@RequestBody Plateg plateg){
         plategService.plategUpWork(plateg);
-//        logger.info("Added new Plateg for Client end credit Amount" + plateg.getClientId()
-//                + " " +plateg.getPlategClient()+ " " + plateg.getDateUpWork());
+
         return plateg;
     }
 
@@ -101,17 +100,14 @@ public class ClientsController {
 
     @DeleteMapping("/client/{id}")
     public String deleteClient(@PathVariable int id){
-//        ClientCredit client = new ClientCredit();
         String mes1 = null;
         mes1 = clientService.deleteClient(id);
-//        logger.info("Client with ID " + id + " DELETED!");
         return mes1;
     }
 
     @DeleteMapping("/client/plateg/{id}")
     public String deletePlateg(@PathVariable int id){
         plategService.deletePlateg(id);
-        //logger.info("Plateg with ID " + id + " DELETED!");
         return "";
     }
 
